@@ -1,0 +1,30 @@
+* How to export via org-publish 
+The following needs to be added to your .emacs to enable publishing of directories
+This has been borrowed from the excellent article at [[https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html][Orgmode.org]]
+#+BEGIN_SRC emacs-lisp
+(require 'ox-publish)
+(setq org-publish-project-alist
+      '(
+
+        ;; ... add all the components here (see below)...
+        ("org-notes"
+         :base-directory "~/OrgExport/org/"
+         :base-extension "org"
+         :publishing-directory "~/OrgExport/public_html/"
+         :recursive t
+         :publishing-function org-html-publish-to-html
+         :headline-levels 4             ; Just the default for this project.
+         :auto-preamble t
+         )
+
+        ("org-static"
+         :base-directory "~/org/"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+         :publishing-directory "~/public_html/"
+         :recursive t
+         :publishing-function org-publish-attachment
+         )
+
+        ("my-webpage" :components ("org-notes" "org-static"))
+        ))
+#+END_SRC

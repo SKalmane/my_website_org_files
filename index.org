@@ -1,0 +1,6 @@
+#+TITLE: Kalmane's Korner
+#+SETUPFILE: ~/.emacs.d/org-export-templates/level-0.org
+
+* [[file:blog.org][My blog]]
+* My projects
+* [[file:technical_books.org][List of interesting papers/books]]
